@@ -33,7 +33,7 @@
 
 #define    kInAppBrowserTintColorDefault @"default"
 
-#define    TOOLBAR_HEIGHT 44.0
+#define    TOOLBAR_HEIGHT 30.0
 #define    STATUSBAR_HEIGHT 20.0
 #define    LOCATIONBAR_HEIGHT 21.0
 #define    FOOTER_HEIGHT ((TOOLBAR_HEIGHT) + (LOCATIONBAR_HEIGHT))
@@ -75,11 +75,11 @@
 
 - (BOOL) isSystemUrl:(NSURL*)url
 {
-	if ([[url host] isEqualToString:@"itunes.apple.com"]) {
-		return YES;
-	}
+    if ([[url host] isEqualToString:@"itunes.apple.com"]) {
+        return YES;
+    }
 
-	return NO;
+    return NO;
 }
 
 - (void)open:(CDVInvokedUrlCommand*)command
@@ -234,7 +234,7 @@
     _previousStatusBarStyle = [UIApplication sharedApplication].statusBarStyle;
 
     __block CDVInAppBrowserNavigationController* nav = [[CDVInAppBrowserNavigationController alloc]
-                                   initWithRootViewController:self.inAppBrowserViewController];
+                                                        initWithRootViewController:self.inAppBrowserViewController];
     nav.orientationDelegate = self.inAppBrowserViewController;
     nav.navigationBarHidden = YES;
     nav.modalPresentationStyle = self.inAppBrowserViewController.modalPresentationStyle;
@@ -539,7 +539,7 @@
 
 // Prevent crashes on closing windows
 -(void)dealloc {
-   self.webView.delegate = nil;
+    self.webView.delegate = nil;
 }
 
 - (void)createViews
@@ -1219,3 +1219,4 @@
 
 
 @end
+
