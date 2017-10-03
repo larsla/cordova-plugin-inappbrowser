@@ -647,6 +647,7 @@
     toolbar.opaque = NO;
     toolbar.userInteractionEnabled = YES;
     toolbar.barStyle = toolbarIsDark ? UIBarStyleBlack : UIBarStyleDefault;
+    toolbar.translucent = NO;
 
     return toolbar;
 }
@@ -765,7 +766,8 @@
     self.closeButton = nil;
     self.closeButton = [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStyleBordered target:self action:@selector(close)];
     self.closeButton.enabled = YES;
-    self.closeButton.tintColor = [UIColor colorWithRed:60.0 / 255.0 green:136.0 / 255.0 blue:230.0 / 255.0 alpha:1];
+    // self.closeButton.tintColor = [UIColor colorWithRed:60.0 / 255.0 green:136.0 / 255.0 blue:230.0 / 255.0 alpha:1];
+    self.closeButton.tintColor = self.view.tintColor;
 
     NSMutableArray* items = [self.toolbar.items mutableCopy];
     [items replaceObjectAtIndex:0 withObject:self.closeButton];
@@ -1170,6 +1172,7 @@
 - (void)setBgToolbarStyle:(UIBarStyle)style
 {
     self.bgToolbar.barStyle = style;
+    self.bgToolbar.translucent = NO;
 }
 
 
